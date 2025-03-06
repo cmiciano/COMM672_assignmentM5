@@ -9,14 +9,26 @@ body {
 
 /* Set font-size, font-weight, and 
  top/bottom margin for h1, h2, and h3. */
-h1,
-h2,
-h3 {
+h1 {
+  /* background-color: red; REMOVE THIS */
+  font-size: 25px;
+  font-weight: bold;
+  /* border: 4px solid black; REMOVE THIS */
+  margin: 10px 0px 20px 0px; /* distance between paragraph and h1*/
+}
+
+h2 {
   /* background-color: red; REMOVE THIS */
   font-size: 20px;
   font-weight: bold;
   /* border: 4px solid black; REMOVE THIS */
-  margin: 10px 0px 10px 0px;
+  margin: 5px 0px 5px 0px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0px 20px 0px;
 }
 
 /* The .container of the page should be set to 1200px, max-width set to 100%,
@@ -30,6 +42,7 @@ h3 {
   padding: 20px;
   margin: auto;
 }
+
 /* All links should be color: #b3679b */
 a {
   color: #b3679b;
@@ -41,24 +54,22 @@ h2 {
 }
 
 /* Adjust the header and main navigation menu so that it’s spaced correctly like my example. 
-You can do this by floating the image and navigation and using the display property on the
+Q You can do this by floating the image and navigation and using the display property on the
  navigation. 
 The logo width needs to be adjusted to be 250px
 The navigation link color is black, with hover color #e6a563.
 Margin between li is 20px
-Make sure you create a div and clear the float before the hero section
-Make the header sticky, be sure to add a height of 110px, background color and z-index 
+Q Make sure you create a div and clear the float before the hero section
+Q Make the header sticky, be sure to add a height of 110px, background color and z-index 
 */
 
 /* The logo width needs to be adjusted to be 250px */
 header > .container img {
   width: 250px;
-  /*float: left; */
+  float: left;
 }
 /* The navigation link color is black, with hover color #e6a563. */
-
 nav > ul > li a {
-  background-color: white;
   color: black;
 }
 
@@ -66,42 +77,44 @@ nav > ul > li a:hover {
   color: #e6a563;
 }
 
+nav > ul {
+  margin-top: 20px; /* Adding margin manually to center as it floats up*/
+  float: right;
+}
+
 /* Margin between li is 20px */
 nav > ul > li {
-  margin: 20px;
-  /*float: left; */
+  margin-right: 20px;
+  display: inline;
 }
 
-/* Background color is #FFCF83
-Button radius is 10px, background color is #222e50
-On hover, button will have a border and font color #222e50 and transparent background
+/* Make the header sticky, be sure to add a height of 110px,
+ background color and z-index.*/
 
-*/
-
-.hero {
-  background-color: #ffcf83;
-}
-/*
-
-.hero:after {
-    content: "";
-    clear: both;
-    display: table;
+header {
+  background-color: #f2f2f2;
+  height: 110px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
 }
 
-*/
-/* remove the underline from specifically the a tag with class button*/
-a.button {
+/* remove the underline from specifically the a tag 
+  with class button*/
+a {
   text-decoration: none;
 }
 
+/* Button radius is 10px, background color is #222e50 */
 .button {
-  border: 3px solid black;
   background-color: #222e50;
   color: white;
   border-radius: 10px;
   padding: 10px;
 }
+
+/* On hover, button will have a border and font color 
+#222e50 and transparent background */
 
 .button:hover {
   border: 3px solid #222e50;
@@ -109,38 +122,96 @@ a.button {
   background-color: transparent;
 }
 
+/* Background color is #FFCF83 */
+/* You will need to add a height to the hero */
+.hero {
+  background-color: #ffcf83;
+  height: 350px; /* added height */
+}
+
+.hero > .container > img {
+  float: right;
+  margin: 10px;
+}
+
+/* Add margin to the top of text to center */
+.blurb {
+  margin-top: 40px;
+  display: inline-block;
+  width: 550px;
+}
+
+/* space between paragraph and button */
+.hero .container p {
+  margin-bottom: 30px;
+}
+
+/* Make sure you create a div and clear the float
+ before the hero section */
+
+/* Add margin to the top of text to center
+You will need to add a height to the hero */
+/* Make sure you create a div and clear the float
+ before the features section */
+
+.clear {
+  clear: both;
+}
 /* Add margin to the top of text to center
 You will need to add a height to the hero
-Make sure you create a div and clear the float before the features section
+Make sure you create a div and clear the float 
+before the features section
 */
 
 /* Each block has a width of 325px
    padding and margin of 20px
    Use inline block and text-align to center
  */
+
+.features.container {
+  /*border: 5px solid red; REMOVE THIS */
+  text-align: center; /* apply text-align center to
+   parent element of blocks*/
+}
+/* Each block has a width of 325px */
+/* Padding and margin of 20px */
+/* Use inline block and text-align to center */
 .feature-block {
-  width: 300px;
+  width: 285px; /* 285 to account for total width of block? */
   padding: 20px;
   margin: 20px;
   display: inline-block;
-  text-align: center;
+  background-color: white;
 }
 
-/* Section background color is #222e50
+/* Section background color is #222e50 */
+.testimonials {
+  background-color: #222e50;
+}
+.testimonials > .container {
+  /* border: 5px solid red; REMOVE THIS */
+  text-align: center; /* apply text-align center to parent 
+  element of blocks*/
+}
+
+/* Manually changing to white */
+.testimonials > .container h2 {
+  color: white;
+}
+/*
 Each block has a width of 300px
 Padding 10px, margin 20px
 Use inline block and text-align to center
 */
-.testimonials {
-  background-color: #222e50;
-}
-
 .testimonial-block {
   background-color: white;
   width: 300px;
   padding: 10px;
   margin: 20px;
-  display: inline-block; /* QUESTION why not properly centered within div */
+  display: inline-block;
+}
+
+.team.container {
   text-align: center;
 }
 
@@ -148,9 +219,13 @@ Use inline block and text-align to center
 Use inline block and text-align to center
 */
 .team-block {
-  width: 210px;
+  width: 210px; /* has to be 212 for block inspect element to be 210px */
   display: inline-block;
-  text-align: center;
+  font-size: 0.95rem;
+}
+
+.team-block p {
+  padding-top: 10px;
 }
 
 /* 
